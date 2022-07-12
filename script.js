@@ -19,15 +19,14 @@ for (let i = 0; i < sectionTitleButton.length; i++){
 //esconder a seção de botões ao clicar no botão título (mexendo só no JS)
 // for (let i = 0; i < sectionTitleButton.length; i++){
 //     sectionTitleButton[i].addEventListener('click', () => {
-//         let nextSibling = sectionTitleButton[i].nextElementSibling;
-//         while (nextSibling){
-//             if (nextSibling.style.display == "none"){
-//                 nextSibling.style.display = "block";
+//         let nextButton = sectionTitleButton[i].nextElementSibling;
+//         while (nextButton){
+//             if (nextButton.style.display == "none"){
+//                 nextButton.style.display = "block";
 //             } else {
-//                 nextSibling.style.display = "none";
+//                 nextButton.style.display = "none";
 //             }
-//             nextSibling = nextSibling.nextElementSibling;
+//             nextButton = nextButton.nextElementSibling;
 //         }
 //     })
 // }
-

@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-html{
+*{
     padding: 0;
     margin: 0;
+    font-family: Inter;
 }
 
 body{
@@ -12,14 +13,12 @@ body{
 #number-players{
     display: flex;
     justify-content: center;
-    margin: 60px 0 40px;
+    margin-top: 60px;
 }
 
 button{
     background-color: #BEE3F8;
-    padding: 0;
-    font-family: Inter;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     color: #2C5282;
     cursor: pointer;
@@ -28,7 +27,7 @@ button{
 }
 
 .player-number{
-    height: 60px;
+    height: 52px;
     width: 180px;
     border-radius: 50px;   
 }
@@ -38,8 +37,8 @@ button{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px; 
-    padding: 20px 0 60px;
+    gap: 16px; 
+    padding: 60px 0;
 }
 
 .buttons-section{
@@ -47,18 +46,23 @@ button{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center; 
-    gap: 20px;
-    max-width: 388px;
+    gap: 16px;
+    max-width: 320px;
 }
 
 .section-title-button{
-    height: 64px;
-    width: 388px;
+    height: 52px;
+    width: 320px;
+}
+
+.hide > .check-button {
+    display: none;
 }
 
 .check-button{
-    height: 116px;
-    width: 116px;
+    height: 96px;
+    width: 96px;
+    font-size: 30px;
 }
 
 .check-button--clicked{
@@ -68,16 +72,31 @@ button{
 #end-game{
     display: flex;
     justify-content: center;
+    margin-bottom: 60px;
 }
 
 #end-button{
-    height: 64px;
-    width: 388px;
+    height: 52px;
+    width: 320px;
     background-color: #1A365D;
     color: #BEE3F8;
-    margin-bottom: 20px;
 }
 
-.hide > .check-button {
-    display: none;
+/*exclusivos home*/
+#home-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    width: 320px;
+    margin: 0 auto;
+}
+
+#number-select{
+    font-size: 48px;
+    font-weight: 700;
+    color: #BEE3F8;
+    text-align: center;
 }
