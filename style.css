@@ -42,7 +42,7 @@ button{
     padding: 20px 0 60px;
 }
 
-.button-section{
+.buttons-section{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -51,7 +51,7 @@ button{
     max-width: 388px;
 }
 
-.section-title{
+.section-title-button{
     height: 64px;
     width: 388px;
 }
@@ -59,6 +59,10 @@ button{
 .check-button{
     height: 116px;
     width: 116px;
+}
+
+.check-button--clicked{
+    opacity: 30%;
 }
 
 #end-game{
@@ -74,3 +78,6 @@ button{
     margin-bottom: 20px;
 }
 
+.hide > .check-button {
+    display: none;
+}
