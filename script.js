@@ -14,10 +14,16 @@ checkButton.forEach(button => button.addEventListener('click', () => {
 
 //esconder a seção de botões ao clicar no botão título
 const sectionTitleButton = document.querySelectorAll('.section-title-button');
+const downArrow = document.getElementById('down-arrow');
 
 sectionTitleButton.forEach(button => button.addEventListener('click', () => {
-    button.parentElement.classList.toggle('hide')
+    button.parentElement.classList.toggle('hide');
+    //flipImage();
 }))
+
+function flipImage(){
+    downArrow.style.transform = 'rotate(180deg)';
+}
 
 //esconder a seção de botões ao clicar no botão título (usando iteração e mexendo só no JS)
 // for (let i = 0; i < sectionTitleButton.length; i++){
