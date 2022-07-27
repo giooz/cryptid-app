@@ -6,4 +6,4 @@ Brazil by Grok Games.
 This app is <strong>not</strong> intented for commercial purposes, being only a tool for code practice and personal use. 
 I do not own any of the rights on 'Cryptid'.
 
-#Currently under development.
+# Currently under development.
