@@ -12,15 +12,16 @@
 <body>
     <header id="number-players">
         <img id="back-arrow" src="./images/0-back-arrow.svg" alt="Arrow pointing left">
-        <button id="player-number" contentEditable="true">Player Name</button>
+        <input id="player-number" placeholder="Player #"></input>
         <img id="fwd-arrow" src="./images/0-back-arrow.svg" alt="Arrow pointing right">
     </header>
     
-    <div id="main-container">
+    <div class="main-container" id="main-container" >
+        
         <section class ="buttons-section" id="terrain-types">
             <button class="section-title-button" id="terrain-types-button">
                 Terrain Types
-                <img id="down-arrow" src="./images/0-down-arrow.svg" alt="Arrow pointing down">
+                <img class="arrow-down" src="./images/0-down-arrow.svg" alt="Arrow pointing down">
             </button>
             <button class="check-button">
                 <img class="button-image" src="./images/1-desert.svg" alt="Terrain type: Desert">
@@ -86,7 +87,7 @@
         <section class ="buttons-section" id="habitats">
             <button class="section-title-button" id="habitats-button">
                 Habitats
-                <img id="down-arrow" src="./images/0-down-arrow.svg" alt="Arrow pointing down">
+                <img class="arrow-down" src="./images/0-down-arrow.svg" alt="Arrow pointing down">
             </button>
             <button class="check-button">
                 <img class="button-image" src="./images/16-puma.svg" alt="Habitat type: Puma">
@@ -100,11 +101,11 @@
                 <img class="button-image" src="./images/18-puma-bear.svg" alt="Habitat type: Puma/Bear">
                 <span class="button-number">1</span> 
             </button>
-              </section>
+        </section>
         <section class ="buttons-section" id="structures">
             <button class="section-title-button" id="structures-button">
                 Structures
-                <img id="down-arrow" src="./images/0-down-arrow.svg" alt="Arrow pointing down">
+                <img class="arrow-down" src="./images/0-down-arrow.svg" alt="Arrow pointing down">
             </button>
             <button class="check-button">
                 <img class="button-image" src="./images/19-shack.svg" alt="Structure type: Shack">
@@ -131,13 +132,20 @@
                 <span class="button-number">3</span> 
             </button>
         </section>
-    </div>    
+    </div> 
+
+    <div class="end-container" id="end-container">
+        <span class="text-message" id="end-message">Are you sure?</span>
+        <button class="confirmation-button" id="yes-button">Yes</button>
+        <button class="confirmation-button" id="no-button">No</button>
+    </div>
 
     <footer id="end-game">
         <button id="end-button">End Game</button>
     </footer>
 
-    <script src="./script.js"></script>
+<script src="./script.js"></script>
+
 </body>
 
 </html>

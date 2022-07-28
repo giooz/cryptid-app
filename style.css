@@ -6,6 +6,7 @@
     padding: 0;
     margin: 0;
     font-family: Inter;
+    scroll-behavior: smooth;
 }
 
 body{
@@ -33,9 +34,16 @@ button{
     height: 52px;
     width: 180px;
     border-radius: 50px;   
+    background-color: #BEE3F8;
+    font-size: 14px;
+    font-weight: bold;
+    color: #2C5282;
+    cursor: pointer;
+    border: none;
+    text-align: center;
 }
 
-#main-container{
+.main-container{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -63,10 +71,18 @@ button{
     display: none;
 }
 
+.hide-main {
+    display: none;
+}
+
 .check-button{
     height: 96px;
     width: 96px;
     position: relative;
+}
+
+.check-button > * {
+    pointer-events: none;
 }
 
 .check-button--clicked{
@@ -88,15 +104,25 @@ button{
 }
 
 /*exclusivos home e end pages*/
-.home-end-container{
-    height: 100vh;
+.end-container{
+    display: none;
+}
+
+.end-container--modal{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
     width: 320px;
     margin: 0 auto;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color:#2C5282;
 }
 
 .text-message{
@@ -121,10 +147,6 @@ button{
     margin-bottom: 40px;
 }
 
-#end-container{
-    gap: 20px;
-}
-
 .button-image{
     height: 70%;
     width: 70%;
@@ -140,13 +162,19 @@ button{
     top: 3px;
 }
 
-#down-arrow{
+.arrow-down{
     position: absolute;
     right: 5px;
     top: 6px;
-    transform: scale(0.75);
+    transform: scale(0.75) rotate(180deg);
+    transition: 200ms;
+}
+
+.arrow-up{
+    transform: scale(0.75) rotate(0deg);
+    transition: 200ms;
 }
 
 #fwd-arrow{
     transform: rotate(180deg);
-}
+}  
