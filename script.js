@@ -33,10 +33,10 @@ checkButton.forEach((button, index) => {
 const sectionTitleButton = document.querySelectorAll('.section-title-button');
 
 sectionTitleButton.forEach((button, index) => {
+    const arrow = button.querySelector('.arrow-up');
     button.addEventListener('click', (e)=> {
         button.parentElement.classList.toggle('hide');
-        const arrowDown = button.querySelector('.arrow-down');
-        arrowDown.classList.toggle('arrow-up');
+        arrow.classList.toggle('arrow-down');
         if (e.target.parentElement.classList.contains('hide')){
             localStorage.setItem('colapsed_' + index, true);
         } else {
@@ -48,6 +48,7 @@ sectionTitleButton.forEach((button, index) => {
     const isColapsed = JSON.parse(localStorage.getItem('colapsed_' + index));
     if (isColapsed == true){
         button.parentElement.classList.toggle('hide');
+        arrow.classList.toggle('arrow-down');
     }
 })
 

@@ -162,7 +162,7 @@ button{
     top: 3px;
 }
 
-.arrow-down{
+.arrow-up{
     position: absolute;
     right: 5px;
     top: 6px;
@@ -170,7 +170,7 @@ button{
     transition: 200ms;
 }
 
-.arrow-up{
+.arrow-down{
     transform: scale(0.75) rotate(0deg);
     transition: 200ms;
 }
