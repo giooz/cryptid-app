@@ -13,13 +13,7 @@ body{
     background-color: #2C5282;
 }
 
-/*header do index*/
-#number-players{
-    display: flex;
-    justify-content: center;
-    margin-top: 60px;
-}
-
+/*propriedades de todos os buttons*/
 button{
     background-color: #BEE3F8;
     font-size: 14px;
@@ -28,6 +22,13 @@ button{
     cursor: pointer;
     border-radius: 6px;
     border: none;
+}
+
+/*<header>*/
+#number-players{
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
 }
 
 #player-number{
@@ -43,6 +44,11 @@ button{
     text-align: center;
 }
 
+#fwd-arrow{
+    transform: rotate(180deg);
+}  
+/*</header>*/
+
 .main-container{
     display: flex;
     flex-direction: column;
@@ -52,7 +58,7 @@ button{
     padding: 60px 0;
 }
 
-.buttons-section{
+.clues-section{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -67,29 +73,53 @@ button{
     position: relative;
 }
 
-.hide > .check-button {
+.hide > .clue-button{
     display: none;
 }
 
-.hide-main {
-    display: none;
+.arrow-up{
+    position: absolute;
+    right: 5px;
+    top: 6px;
+    transform: scale(0.75) rotate(180deg);
+    transition: 200ms;
 }
 
-.check-button{
+.arrow-down{
+    transform: scale(0.75);
+    transition: 200ms;
+}
+
+.clue-button{
     height: 96px;
     width: 96px;
     position: relative;
 }
 
-.check-button > * {
+.clue-button > * {
     pointer-events: none;
 }
 
-.check-button--clicked{
+.clue-button--clicked{
     opacity: 30%;
 }
 
-/*footer do index*/
+.clue-button-img{
+    height: 70%;
+    width: 70%;
+}
+
+.clue-button-number{
+    position: absolute;
+    right: 5px;
+    bottom: 3px;
+}
+
+#structures > .clue-button > .clue-button-number{
+    top: 3px;
+}
+
+/*<footer>*/
 #end-game{
     display: flex;
     justify-content: center;
@@ -102,8 +132,9 @@ button{
     background-color: #1A365D;
     color: #BEE3F8;
 }
+/*</footer>*/
 
-/*exclusivos home e end pages*/
+/*propriedades do modal de end game e tela inicial*/
 .end-container{
     display: none;
 }
@@ -125,6 +156,15 @@ button{
     background-color:#2C5282;
 }
 
+.confirmation-button{
+    height: 52px;
+    width: 100%;
+}
+
+#end-message{
+    margin-bottom: 40px;
+}
+
 .text-message{
     font-size: 40px;
     font-weight: 700;
@@ -137,44 +177,3 @@ button{
     width: 100px;
     font-size: 30px;
 }
-
-.confirmation-button{
-    height: 52px;
-    width: 100%;
-}
-
-#end-message{
-    margin-bottom: 40px;
-}
-
-.button-image{
-    height: 70%;
-    width: 70%;
-}
-
-.button-number{
-    position: absolute;
-    right: 5px;
-    bottom: 3px;
-}
-
-#structures > .check-button > .button-number{
-    top: 3px;
-}
-
-.arrow-up{
-    position: absolute;
-    right: 5px;
-    top: 6px;
-    transform: scale(0.75) rotate(180deg);
-    transition: 200ms;
-}
-
-.arrow-down{
-    transform: scale(0.75) rotate(0deg);
-    transition: 200ms;
-}
-
-#fwd-arrow{
-    transform: rotate(180deg);
-}  

@@ -10,12 +10,12 @@ if (nameBtn.value === ''){
 }
 
 //tornar botões de pista opacos no clique (1) e armazenar estado do botão de pista na localStorage
-const checkButton = document.querySelectorAll('.check-button');
+const clueBtn = document.querySelectorAll('.clue-button');
 
-checkButton.forEach((button, index) => {
+clueBtn.forEach((button, index) => {
     button.addEventListener('click', (e) => {
-        button.classList.toggle('check-button--clicked'); 
-        if (e.target.classList.contains('check-button--clicked')) {
+        button.classList.toggle('clue-button--clicked'); 
+        if (e.target.classList.contains('clue-button--clicked')) {
             localStorage.setItem('clicked_' + index, true);
         } else {
             localStorage.setItem('clicked_'+ index, false);
@@ -25,14 +25,14 @@ checkButton.forEach((button, index) => {
 //buscar o estado na localStorage e atualizar o botão de acordo no refresh
     const isClicked = JSON.parse(localStorage.getItem('clicked_' + index));
     if (isClicked == true){
-        button.classList.add('check-button--clicked');
+        button.classList.add('clue-button--clicked');
     }
 })
 
 //esconder a seção de botões ao clicar no botão título (2), girar a arrow 180deg (3) e armazenar estado do botão de pista na localStorage
-const sectionTitleButton = document.querySelectorAll('.section-title-button');
+const sectionTitleBtn = document.querySelectorAll('.section-title-button');
 
-sectionTitleButton.forEach((button, index) => {
+sectionTitleBtn.forEach((button, index) => {
     const arrow = button.querySelector('.arrow-up');
     button.addEventListener('click', (e)=> {
         button.parentElement.classList.toggle('hide');
@@ -79,22 +79,22 @@ noButton.addEventListener('click', ()=> {
     //métodos alternativos de fazer a mesma coisa - somente p/ fins de estudo
 
 //1
-// checkButton.forEach(button => button.addEventListener('click', () => {
-//     button.classList.toggle('check-button--clicked'); 
+// clueBtn.forEach(button => button.addEventListener('click', () => {
+//     button.classList.toggle('clue-button--clicked'); 
 // }))
 
 //tornar botões de pista opacos no clique (usando for pra iterar entra cada elemento da array)
-// for (let i = 0; i < checkButton.length; i++){
-//     checkButton[i].addEventListener('click', () => {
-//         checkButton[i].classList.toggle('check-button--clicked');
+// for (let i = 0; i < clueBtn.length; i++){
+//     clueBtn[i].addEventListener('click', () => {
+//         clueBtn[i].classList.toggle('clue-button--clicked');
 //     })
 // }
 
 //2
 //esconder a seção de botões ao clicar no botão título (usando iteração e mexendo só no JS)
-// for (let i = 0; i < sectionTitleButton.length; i++){
-//     sectionTitleButton[i].addEventListener('click', () => {
-//         let nextButton = sectionTitleButton[i].nextElementSibling;
+// for (let i = 0; i < sectionTitleBtn.length; i++){
+//     sectionTitleBtn[i].addEventListener('click', () => {
+//         let nextButton = sectionTitleBtn[i].nextElementSibling;
 //         while (nextButton){
 //             if (nextButton.style.display == "none"){
 //                 nextButton.style.display = "block";
