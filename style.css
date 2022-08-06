@@ -11,6 +11,7 @@
 
 body{
     background-color: #2C5282;
+    overflow: hidden;
 }
 
 /*propriedades de todos os buttons*/
@@ -25,13 +26,13 @@ button{
 }
 
 /*<header>*/
-#number-players{
+#current-player{
     display: flex;
     justify-content: center;
     margin-top: 60px;
 }
 
-#player-number{
+.player-name{
     height: 52px;
     width: 180px;
     border-radius: 50px;   
@@ -44,12 +45,21 @@ button{
     text-align: center;
 }
 
-#fwd-arrow{
+::placeholder{
+    opacity: 0.4;
+}
+
+.fwd-arrow{
     transform: rotate(180deg);
+    cursor: pointer;
+}  
+
+.back-arrow{
+    cursor: pointer;
 }  
 /*</header>*/
 
-.main-container{
+.player-container{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -139,7 +149,7 @@ button{
     display: none;
 }
 
-.end-container--modal{
+.container-modal{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -170,6 +180,8 @@ button{
     font-weight: 700;
     color: #BEE3F8;
     text-align: center;
+    margin-bottom: 40px;
+    max-width: 292px;
 }
 
 .home-button{

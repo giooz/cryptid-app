@@ -1,13 +1,64 @@
-//armazenar/resgatar nome do jogador na localStorage
-const nameBtn = document.getElementById('player-number');
+//tela inicial (seleção de qtd de players)
+const template = document.getElementById('main-container');
+const homeBtn = document.querySelectorAll('.home-button');
+const homeContainer = document.getElementById('home-container');
 
-nameBtn.addEventListener('change', (e) => {
-    localStorage.setItem('playername', e.target.value);
+homeBtn.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        localStorage.setItem('player_amount', index + 3);
+        location.reload();
+    })
 })
-if (nameBtn.value === ''){
-    const name = localStorage.getItem('playername');
-    nameBtn.value = name;
+
+//cria a qtd de telas de acordo com a qtd de players 
+const playerAmount = JSON.parse(localStorage.getItem('player_amount'));
+if (playerAmount != null){
+    homeContainer.style.display = 'none';
+    document.body.style = "overflow: visible";
+    const swiperWrapper = document.querySelector('.swiper-wrapper');
+    for (let i = 0; i < (playerAmount - 1); i++){
+        const playerContainer = template.content.cloneNode(true);
+        swiperWrapper.prepend(playerContainer);
+        
+    }
 }
+
+//inicialização swiper (carousel)
+const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: false,
+    observer: true,
+    observeSlideChildren: true,
+    allowTouchMove: true,
+    autoHeight: true,
+    grabCursor: true,
+    threshold: 20,
+    speed: 400,
+    
+    // Navigation arrows
+    navigation: {
+        nextEl: '.fwd-arrow',
+        prevEl: '.back-arrow',
+    },
+});
+
+//armazenar/resgatar nome do jogador na localStorage
+const nameBtn = document.querySelectorAll('.player-name');
+nameBtn.forEach((input, index) => {
+    input.placeholder = `Player ${index + 1}`;
+    // swiper.on('slideChange', function () {
+    //     localStorage.setItem('current_player', (index + 1));
+    // });
+    input.addEventListener('change', (e) => {
+        localStorage.setItem('player_name_' + (index + 1), e.target.value);
+        swiper.update();
+    })
+    if (input.value === ''){
+        const name = localStorage.getItem('player_name_' + index);
+        input.value = name;
+    }
+})
 
 //tornar botões de pista opacos no clique (1) e armazenar estado do botão de pista na localStorage
 const clueBtn = document.querySelectorAll('.clue-button');
@@ -20,9 +71,10 @@ clueBtn.forEach((button, index) => {
         } else {
             localStorage.setItem('clicked_'+ index, false);
         }
+        swiper.update();
     })
     
-//buscar o estado na localStorage e atualizar o botão de acordo no refresh
+    //buscar o estado na localStorage e atualizar o botão de acordo no refresh
     const isClicked = JSON.parse(localStorage.getItem('clicked_' + index));
     if (isClicked == true){
         button.classList.add('clue-button--clicked');
@@ -42,6 +94,7 @@ sectionTitleBtn.forEach((button, index) => {
         } else {
             localStorage.setItem('colapsed_' + index, false);
         }
+        swiper.update();
     })
     
 //buscar o estado na localStorage e atualizar o botão de acordo no refresh
@@ -59,8 +112,9 @@ const noButton = document.getElementById('no-button');
 const endContainer = document.querySelector('.end-container');
 
 endButton.addEventListener('click', ()=> {
-    endContainer.classList.add('end-container--modal');
+    endContainer.classList.add('container-modal');
     document.body.style = "overflow: hidden";
+    swiper.update();
 })
 
 yesButton.addEventListener('click', ()=> {
@@ -70,13 +124,17 @@ yesButton.addEventListener('click', ()=> {
 })
 
 noButton.addEventListener('click', ()=> {
-    endContainer.classList.remove('end-container--modal');
-    document.body.style = '';
+    endContainer.classList.remove('container-modal');
+    document.body.style = 'overflow: visible';
+    swiper.update();
 })
 
+swiper.on('slideChange', function () {
+    swiper.update();
+});
 
 
-    //métodos alternativos de fazer a mesma coisa - somente p/ fins de estudo
+//métodos alternativos de fazer a mesma coisa - somente p/ fins de estudo
 
 //1
 // clueBtn.forEach(button => button.addEventListener('click', () => {
