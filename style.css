@@ -155,7 +155,7 @@ button{
     justify-content: center;
     align-items: center;
     gap: 20px;
-    width: 320px;
+    width: 100%;
     margin: 0 auto;
     position: fixed;
     z-index: 1000;
@@ -168,7 +168,7 @@ button{
 
 .confirmation-button{
     height: 52px;
-    width: 100%;
+    width: 320px;
 }
 
 #end-message{
