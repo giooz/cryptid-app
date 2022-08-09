@@ -8,4 +8,4 @@ Prototype designed on Figma - you can check it <a href="https://www.figma.com/fi
 This app is <strong>not</strong> intented for commercial purposes, being only a tool for code practice and personal use. 
 I do not own any of the rights on 'Cryptid'.
 
-## Currently under development.
+## Beta version live on Aug 9, 2022.
