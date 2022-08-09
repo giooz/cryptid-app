@@ -19,9 +19,11 @@ if (playerAmount != null){
     for (let i = 0; i < (playerAmount - 1); i++){
         const playerContainer = template.content.cloneNode(true);
         swiperWrapper.prepend(playerContainer);
-        
     }
 }
+
+//resgata na localStorage o jogador ativo (setado após init o swiper) pra usar como slide inicial
+const currentPlayer = JSON.parse(localStorage.getItem('current_player') - 1);
 
 //inicialização swiper (carousel)
 const swiper = new Swiper('.swiper', {
@@ -35,6 +37,7 @@ const swiper = new Swiper('.swiper', {
     grabCursor: true,
     threshold: 20,
     speed: 400,
+    initialSlide: currentPlayer || 0,
     
     // Navigation arrows
     navigation: {
@@ -43,20 +46,22 @@ const swiper = new Swiper('.swiper', {
     },
 });
 
+//salva o slide atual como jogador ativo na localStorage
+swiper.on('slideChange', function () {
+    localStorage.setItem('current_player', (swiper.activeIndex + 1));
+    swiper.update();
+});
+
 //armazenar/resgatar nome do jogador na localStorage
 const nameBtn = document.querySelectorAll('.player-name');
 nameBtn.forEach((input, index) => {
     input.placeholder = `Player ${index + 1}`;
-    // swiper.on('slideChange', function () {
-    //     localStorage.setItem('current_player', (index + 1));
-    // });
     input.addEventListener('change', (e) => {
         localStorage.setItem('player_name_' + (index + 1), e.target.value);
-        swiper.update();
     })
     if (input.value === ''){
-        const name = localStorage.getItem('player_name_' + index);
-        input.value = name;
+        input.value = localStorage.getItem('player_name_' + (index + 1));
+        swiper.update();
     }
 })
 
@@ -97,7 +102,7 @@ sectionTitleBtn.forEach((button, index) => {
         swiper.update();
     })
     
-//buscar o estado na localStorage e atualizar o botão de acordo no refresh
+    //buscar o estado na localStorage e atualizar o botão de acordo no refresh
     const isColapsed = JSON.parse(localStorage.getItem('colapsed_' + index));
     if (isColapsed == true){
         button.parentElement.classList.toggle('hide');
@@ -129,9 +134,6 @@ noButton.addEventListener('click', ()=> {
     swiper.update();
 })
 
-swiper.on('slideChange', function () {
-    swiper.update();
-});
 
 
 //métodos alternativos de fazer a mesma coisa - somente p/ fins de estudo
